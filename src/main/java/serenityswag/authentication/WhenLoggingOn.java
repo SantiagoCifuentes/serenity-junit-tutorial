@@ -18,8 +18,7 @@ import static serenityswag.authentication.User.*;
 @ExtendWith(SerenityJUnit5Extension.class)
 public class WhenLoggingOn {
 
-    @Managed
-    WebDriver driver;
+
 
     @Steps
     LoginActions login;
@@ -31,6 +30,7 @@ public class WhenLoggingOn {
     public void usersCanLogOnViaTheHomePage(){
 
         login.as(STANDARD_USER);
+
         Serenity.reportThat("The inventory page should be displayed with the correct tittle",
                 ()->  assertThat(inventoryPage.getHeading()).isEqualToIgnoringCase("Products"));
 

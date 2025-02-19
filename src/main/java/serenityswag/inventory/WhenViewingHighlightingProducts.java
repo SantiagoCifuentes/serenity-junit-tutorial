@@ -30,7 +30,9 @@ public class WhenViewingHighlightingProducts {
     @Test
     public void shouldDisplayHighlightedProductsOnTheWelcomePage(){
 
+
         login.as(User.STANDARD_USER);
+
 
         List<String> productsOnDisplay = productListPageObject.titles();
 
@@ -42,15 +44,19 @@ public class WhenViewingHighlightingProducts {
 
     @Test
     public void shouldDisplayCorrectProductDetailsPage(){
-
+        // Se abre la página del detalle del producto
         login.as(User.STANDARD_USER);
 
+        //Encuentra el primer titulo del primer producto
         String firstItemName = productListPageObject.titles().getFirst();
 
+        //Una vez en la página se busca por linkText
         productListPageObject.openProductDetailsFor(firstItemName);
 
         //checkea si la nueva página es igual al de la lista original
         assertThat(productDetailsPageObject.productName()).isEqualTo(firstItemName);
+
+        productDetailsPageObject.productImageWithAltValueOf(firstItemName).shouldBeVisible();
 
     }
 
