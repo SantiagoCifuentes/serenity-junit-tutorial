@@ -1,9 +1,8 @@
-package serenityswag.authentication.actions;
+package serenityswag.authentication;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.steps.UIInteractionSteps;
 import org.openqa.selenium.By;
-import serenityswag.authentication.User;
 
 public class LoginActions  extends UIInteractionSteps {
 
@@ -18,9 +17,9 @@ public class LoginActions  extends UIInteractionSteps {
 
         // with ID alocators
 
-        find(By.id("user-name")).sendKeys(user.getUsername());
-        find(By.id("password")).sendKeys(user.getPassword());
-        find(By.id("login-button")).click();
+        find(LoginForm.USER_NAME).sendKeys(user.getUsername());
+        find(LoginForm.PASSWORD).sendKeys(user.getPassword());
+        find(LoginForm.LOGIN_BUTTON).click();
 
 
 
